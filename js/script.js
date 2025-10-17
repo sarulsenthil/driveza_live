@@ -1,17 +1,15 @@
 // DriveZA Motors - Main Script
 // Uses centralized JSON data from data/cars.json
 
-// DOM Elements
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const carsGrid = document.getElementById('carsGrid');
-
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
+    console.log('DOM loaded, initializing...');
+    
     // Load navigation functionality
     initNavigation();
     
     // Load featured cars if on homepage
+    const carsGrid = document.getElementById('carsGrid');
     if (carsGrid) {
         console.log('Found carsGrid element, loading featured cars...');
         await loadFeaturedCars();
@@ -22,6 +20,9 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 // Navigation functionality
 function initNavigation() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
@@ -52,8 +53,25 @@ function initNavigation() {
 async function loadFeaturedCars() {
     try {
         console.log('Loading featured cars...');
-        const cars = await DriveZAData.getCars();
-        console.log('Loaded cars:', cars);
+        
+        const carsGrid = document.getElementById('carsGrid');
+        if (!carsGrid) {
+            console.error('carsGrid element not found in loadFeaturedCars');
+            return;
+        }
+        
+        let cars = [];
+        
+        // Try to load from DriveZAData
+        try {
+            cars = await DriveZAData.getCars();
+            console.log('Loaded cars from DriveZAData:', cars);
+        } catch (error) {
+            console.error('Failed to load from DriveZAData:', error);
+            // Use hardcoded fallback
+            cars = getHardcodedCars();
+            console.log('Using hardcoded cars:', cars);
+        }
         
         if (!cars || cars.length === 0) {
             carsGrid.innerHTML = '<p>No vehicles available at this time.</p>';
@@ -88,6 +106,72 @@ async function loadFeaturedCars() {
         console.error('Error loading featured cars:', error);
         carsGrid.innerHTML = '<p>Error loading vehicles. Please try again later.</p>';
     }
+}
+
+// Hardcoded fallback cars data
+function getHardcodedCars() {
+    return [
+        {
+            id: 1,
+            make: "Volvo",
+            model: "XC90 B5 Core",
+            year: 2024,
+            price: 41995,
+            mileage: 18500,
+            fuel: "Gas",
+            transmission: "Automatic",
+            image: "../images/cars/xc90-b5-front.jpg",
+            sold: false
+        },
+        {
+            id: 2,
+            make: "Volvo",
+            model: "XC90 T8 Core",
+            year: 2024,
+            price: 51995,
+            mileage: 21800,
+            fuel: "Hybrid",
+            transmission: "Automatic",
+            image: "../images/cars/xc90-t8/IMG_7940.jpeg",
+            sold: false
+        },
+        {
+            id: 3,
+            make: "Volvo",
+            model: "EX90 Ultra",
+            year: 2025,
+            price: 71995,
+            mileage: 0,
+            fuel: "Electric",
+            transmission: "Automatic",
+            image: "../images/cars/ex90/IMG_7920_3.jpeg",
+            sold: false
+        },
+        {
+            id: 4,
+            make: "Mercedes-Benz",
+            model: "GLE 350",
+            year: 2023,
+            price: 41995,
+            mileage: 15500,
+            fuel: "Gas",
+            transmission: "Automatic",
+            image: "../images/cars/mercedes-gle350/IMG_7919.jpeg",
+            sold: true
+        },
+        {
+            id: 5,
+            make: "Porsche",
+            model: "Cayenne",
+            year: 2021,
+            price: 49995,
+            mileage: 24000,
+            fuel: "Gas",
+            transmission: "Automatic",
+            image: "../images/cars/porsche-cayenne/IMG_7991.jpeg",
+            sold: false
+        }
+    ];
 }
 
 // View car details
