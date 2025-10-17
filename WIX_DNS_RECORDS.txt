@@ -1,0 +1,36 @@
+═══════════════════════════════════════════════════════════════
+  ADD THESE DNS RECORDS TO WIX NOW (Step 1)
+═══════════════════════════════════════════════════════════════
+
+Go to: Wix Dashboard → Domains → Manage → Advanced DNS
+
+───────────────────────────────────────────────────────────────
+RECORD 1: SSL Validation for drivezamotors.com
+───────────────────────────────────────────────────────────────
+Type:  CNAME
+Name:  _bbbf4c294fa6db705fbedceb32bbb4db
+Value: _8b1b3788f8eea688c5ca2ba429c741c7.xlfgrmvvlj.acm-validations.aws.
+TTL:   300 (or leave default)
+
+───────────────────────────────────────────────────────────────
+RECORD 2: SSL Validation for www.drivezamotors.com
+───────────────────────────────────────────────────────────────
+Type:  CNAME
+Name:  _451e812eed044b5e11b62e968d7d4b94.www
+Value: _03fd16423154341b1ab97e3922e277d6.xlfgrmvvlj.acm-validations.aws.
+TTL:   300 (or leave default)
+
+═══════════════════════════════════════════════════════════════
+
+After adding BOTH records:
+1. Wait 5-30 minutes
+2. Run: ./setup-cloudfront.sh
+3. Follow the next steps shown
+
+═══════════════════════════════════════════════════════════════
+
+⚠️  IMPORTANT: Copy these values EXACTLY as shown (including dots)
+⚠️  DO NOT add these records until you're ready to switch from Wix
+
+═══════════════════════════════════════════════════════════════
+

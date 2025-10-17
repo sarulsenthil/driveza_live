@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021 Porsche Cayenne - DriveZA Motors</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="car-detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="logo.svg" alt="DriveZA Motors" class="logo">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="inventory.html" class="nav-link">Inventory</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Car Detail Hero -->
+    <section class="car-detail-hero">
+        <div class="hero-gallery">
+            <div class="main-image">
+                <img src="images/cars/porsche-cayenne/IMG_7991.jpeg" alt="2021 Porsche Cayenne" id="mainImage">
+            </div>
+            <div class="thumbnail-gallery">
+                <img src="images/cars/porsche-cayenne/IMG_7991.jpeg" alt="Front view" class="thumbnail active" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_7992.jpeg" alt="Side view" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_7993.jpeg" alt="Rear view" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_7994.jpeg" alt="Interior" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_7995.jpeg" alt="Dashboard" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_7996.jpeg" alt="Seats" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_7997.jpeg" alt="Center console" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_7998.jpeg" alt="Steering wheel" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_7999.jpeg" alt="Rear seats" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_8001.jpeg" alt="Cargo area" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_8002.jpeg" alt="Wheels" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_8003.jpeg" alt="Exterior detail" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_8004.jpeg" alt="Side detail" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_8005.jpeg" alt="Front detail" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_8006.jpeg" alt="Interior detail" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_8007.jpeg" alt="Console detail" class="thumbnail" onclick="changeImage(this)">
+                <img src="images/cars/porsche-cayenne/IMG_8008.jpeg" alt="Rear detail" class="thumbnail" onclick="changeImage(this)">
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Details Section -->
+    <section class="car-details-section">
+        <div class="container">
+            <div class="detail-grid">
+                <!-- Left Column - Details -->
+                <div class="detail-info">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a> / 
+                        <a href="inventory.html">Inventory</a> / 
+                        <span>2021 Porsche Cayenne</span>
+                    </div>
+                        
+                        <h1 class="car-detail-title">2021 Porsche Cayenne</h1>
+                        <p class="car-detail-subtitle">Luxury SUV · VIN: WP1AA2AY3MDA04901</p>
+                        
+                        <div class="price-contact-container">
+                            <div class="price-section">
+                                <div class="price-tag">$49,995<sup>*</sup></div>
+                                <p class="price-disclaimer">* Price excludes government fees and taxes, any finance charges, any dealer document preparation charge, and any emission testing charge.</p>
+                            </div>
+                        </div>
+
+                        <div class="badge-row">
+                            <span class="highlight-badge">Luxury SUV</span>
+                            <span class="highlight-badge">Premium Package</span>
+                            <span class="highlight-badge">Low Miles</span>
+                        </div>
+
+                        <div class="description-section">
+                            <h2>Description</h2>
+                            <p>Exceptional 2021 Porsche Cayenne in pristine condition. This luxury SUV combines German engineering excellence with uncompromising performance and sophistication. Features the powerful V6 engine delivering exceptional power and efficiency.</p>
+                            
+                            <p>Equipped with premium features including leather upholstery, panoramic sunroof, premium audio system, and advanced driver assistance systems. The interior showcases Porsche's commitment to luxury and craftsmanship with high-quality materials throughout.</p>
+                        </div>
+
+                        <div class="specs-grid">
+                            <div class="spec-item">
+                                <i class="fas fa-calendar"></i>
+                                <div class="spec-content">
+                                    <span class="spec-label">Year</span>
+                                    <span class="spec-value">2021</span>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <div class="spec-content">
+                                    <span class="spec-label">Mileage</span>
+                                    <span class="spec-value">24,000 miles</span>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-cog"></i>
+                                <div class="spec-content">
+                                    <span class="spec-label">Transmission</span>
+                                    <span class="spec-value">8-Speed Automatic</span>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-gas-pump"></i>
+                                <div class="spec-content">
+                                    <span class="spec-label">Fuel Type</span>
+                                    <span class="spec-value">Premium Unleaded</span>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-cogs"></i>
+                                <div class="spec-content">
+                                    <span class="spec-label">Engine</span>
+                                    <span class="spec-value">3.0L V6 Turbo</span>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-palette"></i>
+                                <div class="spec-content">
+                                    <span class="spec-label">Color</span>
+                                    <span class="spec-value">Moonlight Blue Metallic with Slate Grey Interior</span>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-door-open"></i>
+                                <div class="spec-content">
+                                    <span class="spec-label">Doors</span>
+                                    <span class="spec-value">5</span>
+                                </div>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-users"></i>
+                                <div class="spec-content">
+                                    <span class="spec-label">Seats</span>
+                                    <span class="spec-value">5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="features-section">
+                            <h2>Key Features</h2>
+                            <div class="features-grid">
+                                <div class="feature-badge">Panoramic Sunroof</div>
+                                <div class="feature-badge">Leather Upholstery</div>
+                                <div class="feature-badge">AWD</div>
+                                <div class="feature-badge">Parking Assist</div>
+                                <div class="feature-badge">Blind Spot Monitoring</div>
+                                <div class="feature-badge">PCM System</div>
+                                <div class="feature-badge">Apple CarPlay</div>
+                                <div class="feature-badge">Premium Audio</div>
+                                <div class="feature-badge">Cruise Control</div>
+                                <div class="feature-badge">BOSE Sound System</div>
+                                <div class="feature-badge">Premium Package Plus</div>
+                                <div class="feature-badge">Massage Seats</div>
+                                <div class="feature-badge">Painting Protection Film</div>
+                                <div class="feature-badge">Heated Seats</div>
+                                <div class="feature-badge">Ventilated Seats</div>
+                                <div class="feature-badge">Manufacturer Warranty</div>
+                            </div>
+                        </div>
+
+                </div>
+                <!-- Right Column - CTA -->
+                <div class="detail-sidebar">
+                    <div class="contact-card">
+                        <h3>Interested in this vehicle?</h3>
+                        <p>Get in touch with our sales team for more information or to schedule a test drive.</p>
+                        
+                        <div class="contact-actions">
+                            <a href="tel:9255037734" class="btn btn-primary">
+                                <i class="fas fa-phone"></i> Call Us
+                            </a>
+                            <a href="https://wa.me/19255037734?text=Hi,%20I'm%20interested%20in%20the%202021%20Porsche%20Cayenne" class="btn btn-secondary" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="contact.html" class="btn btn-outline">
+                                <i class="fas fa-envelope"></i> Email Us
+                            </a>
+                        </div>
+
+                        <div class="dealer-info">
+                            <h4>Driveza</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> 4047, 1st St, Suite 116, Livermore, CA</p>
+                            <p><i class="fas fa-clock"></i> Mon-Fri: 10:00 AM - 5:00 PM</p>
+                            <p><i class="fas fa-clock"></i> Sat: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+
+            
+
+            <!-- Similar Vehicles -->
+            <div class="similar-section">
+                <h2>Similar Vehicles</h2>
+                <div class="similar-grid">
+                    <a href="car-detail-1.html" class="similar-card">
+                        <img src="images/cars/xc90-b5-front.jpg" alt="XC90 B5">
+                        <div class="similar-info">
+                            <h4>2024 Volvo XC90 B5 Core</h4>
+                            <p class="similar-price">$41,995</p>
+                        </div>
+                    </a>
+                    <a href="car-detail-2.html" class="similar-card">
+                        <img src="images/cars/xc90-t8/IMG_7939.jpeg" alt="XC90 T8">
+                        <div class="similar-info">
+                            <h4>2024 Volvo XC90 T8 Core</h4>
+                            <p class="similar-price">$51,995</p>
+                        </div>
+                    </a>
+                    <a href="car-detail-3.html" class="similar-card">
+                        <img src="images/cars/ex90/IMG_7920_3.jpeg" alt="EX90">
+                        <div class="similar-info">
+                            <h4>2025 Volvo EX90 Ultra</h4>
+                            <p class="similar-price">$71,995</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.svg" alt="DriveZA Logo" class="logo">
+                    </div>
+                    <p>Your trusted partner for premium pre-owned vehicles in the Bay Area.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="inventory.html">Inventory</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="inventory.html">Car Sales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>4047, 1st St, Suite 116<br>Livermore, CA 94551</p>
+                    <p>Phone: (925) 503-7734</p>
+                    <p>Email: sales@drivezamotors.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Driveza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Image gallery functionality
+        function changeImage(thumbnail) {
+            const mainImage = document.getElementById('mainImage');
+            
+            // Remove active class from all thumbnails
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Add active class to clicked thumbnail
+            thumbnail.classList.add('active');
+            
+            // Change main image
+            mainImage.src = thumbnail.src;
+        }
+    </script>
+</body>
+</html>
