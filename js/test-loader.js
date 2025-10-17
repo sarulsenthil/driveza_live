@@ -7,7 +7,7 @@ async function testDataLoader() {
     
     try {
         // Test if DriveZAData is available
-        if (typeof DriveZAData === 'undefined') {
+        if (typeof window.DriveZAData === 'undefined') {
             console.error('DriveZAData is not defined');
             return;
         }
@@ -15,11 +15,11 @@ async function testDataLoader() {
         console.log('DriveZAData is available');
         
         // Test loading data
-        const data = await DriveZAData.loadData();
+        const data = await window.DriveZAData.loadData();
         console.log('Data loaded successfully:', data);
         
         // Test getting cars
-        const cars = await DriveZAData.getCars();
+        const cars = await window.DriveZAData.getCars();
         console.log('Cars loaded:', cars);
         
         // Test if carsGrid exists

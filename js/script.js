@@ -64,8 +64,12 @@ async function loadFeaturedCars() {
         
         // Try to load from DriveZAData
         try {
-            cars = await DriveZAData.getCars();
-            console.log('Loaded cars from DriveZAData:', cars);
+            if (window.DriveZAData && typeof window.DriveZAData.getCars === 'function') {
+                cars = await window.DriveZAData.getCars();
+                console.log('Loaded cars from DriveZAData:', cars);
+            } else {
+                throw new Error('DriveZAData not available');
+            }
         } catch (error) {
             console.error('Failed to load from DriveZAData:', error);
             // Use hardcoded fallback
@@ -87,7 +91,7 @@ async function loadFeaturedCars() {
                 <div class="car-info">
                     <h3 class="car-title">${car.year} ${car.make} ${car.model} ${car.sold ? '<span class="sold-badge-small">SOLD</span>' : ''}</h3>
                     <div class="car-details">
-                        <span><i class="fas fa-tachometer-alt"></i> ${DriveZAData.formatMileage(car.mileage)}</span>
+                        <span><i class="fas fa-tachometer-alt"></i> ${formatMileage(car.mileage)}</span>
                         <span><i class="fas fa-cog"></i> ${car.transmission}</span>
                     </div>
                     <div class="car-details">
@@ -106,6 +110,20 @@ async function loadFeaturedCars() {
         console.error('Error loading featured cars:', error);
         carsGrid.innerHTML = '<p>Error loading vehicles. Please try again later.</p>';
     }
+}
+
+// Utility functions
+function formatMileage(mileage) {
+    return new Intl.NumberFormat('en-US').format(mileage) + ' miles';
+}
+
+function formatCurrency(amount) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(amount);
 }
 
 // Hardcoded fallback cars data
