@@ -99,7 +99,7 @@ async function loadFeaturedCars() {
                         ${car.engine ? `<span><i class="fas fa-cogs"></i> ${car.engine}</span>` : ''}
                     </div>
                     ${car.color ? `<div class="car-details"><span><i class="fas fa-palette"></i> ${car.color}</span></div>` : ''}
-                    <div class="car-price">${DriveZAData.formatCurrency(car.price)}</div>
+                    <div class="car-price">${formatCurrency(car.price)}</div>
                     <div class="car-actions" onclick="event.stopPropagation()">
                         <button class="btn btn-primary btn-small" onclick="viewCarDetails(${car.id})">View Details</button>
                     </div>
