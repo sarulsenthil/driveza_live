@@ -1,152 +1,189 @@
-// Inventory Page JavaScript
+// DriveZA Motors - Inventory Page Script
+// Uses centralized JSON data from data/cars.json
+
+// Utility functions
+function formatMileage(mileage) {
+    return new Intl.NumberFormat('en-US').format(mileage) + ' miles';
+}
+
+function formatCurrency(amount) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(amount);
+}
+
+// Global variables
+let currentCars = [];
+let filteredCars = [];
 
 // DOM Elements
+const carsContainer = document.getElementById('carsContainer');
 const searchInput = document.getElementById('searchInput');
 const makeFilter = document.getElementById('makeFilter');
+const priceFilter = document.getElementById('priceFilter');
 const fuelFilter = document.getElementById('fuelFilter');
-const transmissionFilter = document.getElementById('transmissionFilter');
-const priceRange = document.getElementById('priceRange');
-const clearFiltersBtn = document.getElementById('clearFilters');
-const sortByBtn = document.getElementById('sortBy');
-const gridViewBtn = document.getElementById('gridView');
-const listViewBtn = document.getElementById('listView');
-const carsContainer = document.getElementById('carsContainer');
+const yearFilter = document.getElementById('yearFilter');
+const sortSelect = document.getElementById('sortSelect');
 const resultsCount = document.getElementById('resultsCount');
-const noResults = document.getElementById('noResults');
-const carModal = document.getElementById('carModal');
-const modalContent = document.getElementById('modalContent');
-const closeModal = document.querySelector('.close');
 
-// State
-let currentCars = [...carsData];
-let currentView = 'grid';
-let sortOrder = 'asc';
-
-// Initialize page
-document.addEventListener('DOMContentLoaded', () => {
-    loadCars();
-    setupEventListeners();
-});
-
-// Event Listeners
-function setupEventListeners() {
-    // Search and filters
-    searchInput.addEventListener('input', debounce(filterCars, 300));
-    makeFilter.addEventListener('change', filterCars);
-    fuelFilter.addEventListener('change', filterCars);
-    transmissionFilter.addEventListener('change', filterCars);
-    priceRange.addEventListener('change', filterCars);
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', async function() {
+    // Wait a bit for DriveZAData to be available
+    let attempts = 0;
+    const maxAttempts = 10;
     
-    // Actions
-    clearFiltersBtn.addEventListener('click', clearFilters);
-    sortByBtn.addEventListener('click', toggleSort);
-    
-    // View toggle
-    gridViewBtn.addEventListener('click', () => switchView('grid'));
-    listViewBtn.addEventListener('click', () => switchView('list'));
-    
-    // Modal
-    closeModal.addEventListener('click', closeCarModal);
-    window.addEventListener('click', (e) => {
-        if (e.target === carModal) {
-            closeCarModal();
-        }
-    });
-    
-    // Mobile navigation
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
+    while (!window.DriveZAData && attempts < maxAttempts) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        attempts++;
     }
-}
-
-// Load and display cars
-function loadCars() {
-    displayCars(currentCars);
-    updateResultsCount(currentCars.length);
-}
-
-// Filter cars based on search and filters
-function filterCars() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const make = makeFilter.value;
-    const fuel = fuelFilter.value;
-    const transmission = transmissionFilter.value;
-    const priceRangeValue = priceRange.value;
     
-    let filtered = carsData.filter(car => {
-        // Search filter
-        if (searchTerm && !car.make.toLowerCase().includes(searchTerm) && 
-            !car.model.toLowerCase().includes(searchTerm) && 
-            !car.year.toString().includes(searchTerm)) {
-            return false;
-        }
-        
-        // Make filter
-        if (make && car.make !== make) {
-            return false;
-        }
-        
-        // Fuel filter
-        if (fuel && car.fuel !== fuel) {
-            return false;
-        }
-        
-        // Transmission filter
-        if (transmission && car.transmission !== transmission) {
-            return false;
-        }
-        
-        // Price range filter
-        if (priceRangeValue) {
-            const [min, max] = priceRangeValue.split('-').map(Number);
-            if (car.price < min || car.price > max) {
-                return false;
-            }
-        }
-        
-        return true;
-    });
-    
-    currentCars = filtered;
-    displayCars(currentCars);
-    updateResultsCount(currentCars.length);
-}
-
-// Display cars in the container
-function displayCars(cars) {
-    if (cars.length === 0) {
-        carsContainer.style.display = 'none';
-        noResults.style.display = 'block';
+    if (!window.DriveZAData) {
+        console.error('DriveZAData not available after waiting');
+        carsContainer.innerHTML = '<p>Error loading inventory. Please try again later.</p>';
         return;
     }
     
-    carsContainer.style.display = 'grid';
-    noResults.style.display = 'none';
+    console.log('DriveZAData is available, loading inventory');
+    await loadInventory();
+    setupEventListeners();
+});
+
+// Load inventory from JSON data
+async function loadInventory() {
+    try {
+        console.log('Loading inventory...');
+        currentCars = await window.DriveZAData.getCars();
+        console.log('Loaded cars:', currentCars);
+        filteredCars = [...currentCars];
+        displayCars(filteredCars);
+        updateResultsCount();
+    } catch (error) {
+        console.error('Error loading inventory:', error);
+        carsContainer.innerHTML = '<p>Error loading inventory. Please try again later.</p>';
+    }
+}
+
+// Setup event listeners
+function setupEventListeners() {
+    if (searchInput) {
+        searchInput.addEventListener('input', filterCars);
+    }
     
-    carsContainer.innerHTML = cars.map(car => createCarCard(car)).join('');
+    if (makeFilter) {
+        makeFilter.addEventListener('change', filterCars);
+    }
     
-    // Add click handlers to car cards
-    document.querySelectorAll('.car-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            if (!e.target.closest('.car-actions')) {
-                const carId = parseInt(card.dataset.carId);
-                showCarModal(carId);
-            }
-        });
+    if (priceFilter) {
+        priceFilter.addEventListener('change', filterCars);
+    }
+    
+    if (fuelFilter) {
+        fuelFilter.addEventListener('change', filterCars);
+    }
+    
+    if (yearFilter) {
+        yearFilter.addEventListener('change', filterCars);
+    }
+    
+    if (sortSelect) {
+        sortSelect.addEventListener('change', sortCars);
+    }
+}
+
+// Filter cars based on search criteria
+function filterCars() {
+    const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+    const selectedMake = makeFilter ? makeFilter.value : '';
+    const selectedPrice = priceFilter ? priceFilter.value : '';
+    const selectedFuel = fuelFilter ? fuelFilter.value : '';
+    const selectedYear = yearFilter ? yearFilter.value : '';
+
+    filteredCars = currentCars.filter(car => {
+        // Search term filter
+        const matchesSearch = !searchTerm || 
+            car.make.toLowerCase().includes(searchTerm) ||
+            car.model.toLowerCase().includes(searchTerm) ||
+            car.year.toString().includes(searchTerm) ||
+            car.color.toLowerCase().includes(searchTerm);
+
+        // Make filter
+        const matchesMake = !selectedMake || car.make === selectedMake;
+
+        // Price filter
+        const matchesPrice = !selectedPrice || checkPriceRange(car.price, selectedPrice);
+
+        // Fuel filter
+        const matchesFuel = !selectedFuel || car.fuel.toLowerCase() === selectedFuel.toLowerCase();
+
+        // Year filter
+        const matchesYear = !selectedYear || car.year.toString() === selectedYear;
+
+        return matchesSearch && matchesMake && matchesPrice && matchesFuel && matchesYear;
     });
+
+    displayCars(filteredCars);
+    updateResultsCount();
+}
+
+// Check if car price falls within selected range
+function checkPriceRange(price, range) {
+    switch (range) {
+        case 'under-30k':
+            return price < 30000;
+        case '30k-50k':
+            return price >= 30000 && price < 50000;
+        case '50k-70k':
+            return price >= 50000 && price < 70000;
+        case 'over-70k':
+            return price >= 70000;
+        default:
+            return true;
+    }
+}
+
+// Sort cars
+function sortCars() {
+    const sortBy = sortSelect ? sortSelect.value : 'year-desc';
+    
+    filteredCars.sort((a, b) => {
+        switch (sortBy) {
+            case 'year-desc':
+                return b.year - a.year;
+            case 'year-asc':
+                return a.year - b.year;
+            case 'price-desc':
+                return b.price - a.price;
+            case 'price-asc':
+                return a.price - b.price;
+            case 'mileage-asc':
+                return a.mileage - b.mileage;
+            case 'mileage-desc':
+                return b.mileage - a.mileage;
+            case 'make-asc':
+                return a.make.localeCompare(b.make);
+            case 'make-desc':
+                return b.make.localeCompare(a.make);
+            default:
+                return 0;
+        }
+    });
+
+    displayCars(filteredCars);
+}
+
+// Display cars in the grid
+function displayCars(cars) {
+    if (!carsContainer) return;
+
+    if (cars.length === 0) {
+        carsContainer.innerHTML = '<div class="no-results"><p>No vehicles found matching your criteria.</p></div>';
+        return;
+    }
+
+    carsContainer.innerHTML = cars.map(car => createCarCard(car)).join('');
 }
 
 // Create car card HTML
@@ -197,212 +234,39 @@ function createCarCard(car) {
     `;
 }
 
-// Show car modal
-function showCarModal(carId) {
-    const car = carsData.find(c => c.id === carId);
-    if (!car) return;
-    
-    const isNew = car.year >= new Date().getFullYear() - 1;
-    const badge = isNew ? '<div class="car-badge">New</div>' : '';
-    
-    modalContent.innerHTML = `
-        <div class="modal-car-image">
-            <i class="fas fa-car"></i>
-            ${badge}
-        </div>
-        <div class="modal-car-info">
-            <h2 class="modal-car-title">${car.year} ${car.make} ${car.model}</h2>
-            <div class="modal-car-price">${formatCurrency(car.price)}</div>
-            
-            <div class="modal-car-details">
-                <div class="modal-detail-item">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Mileage: ${formatMileage(car.mileage)}</span>
-                </div>
-                <div class="modal-detail-item">
-                    <i class="fas fa-calendar"></i>
-                    <span>Year: ${car.year}</span>
-                </div>
-                <div class="modal-detail-item">
-                    <i class="fas fa-cog"></i>
-                    <span>Transmission: ${car.transmission}</span>
-                </div>
-                <div class="modal-detail-item">
-                    <i class="fas fa-gas-pump"></i>
-                    <span>Fuel Type: ${car.fuel}</span>
-                </div>
-                ${car.engine ? `
-                <div class="modal-detail-item">
-                    <i class="fas fa-cogs"></i>
-                    <span>Engine: ${car.engine}</span>
-                </div>
-                ` : ''}
-                <div class="modal-detail-item">
-                    <i class="fas fa-palette"></i>
-                    <span>Color: ${car.color || 'Available in multiple colors'}</span>
-                </div>
-                ${car.doors ? `
-                <div class="modal-detail-item">
-                    <i class="fas fa-car"></i>
-                    <span>Doors: ${car.doors}</span>
-                </div>
-                ` : ''}
-                ${car.seats ? `
-                <div class="modal-detail-item">
-                    <i class="fas fa-users"></i>
-                    <span>Seats: ${car.seats}</span>
-                </div>
-                ` : ''}
-                <div class="modal-detail-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Warranty: 12 months included</span>
-                </div>
-            </div>
-            
-            ${car.features && car.features.length > 0 ? `
-            <div class="car-features">
-                <h4>Key Features:</h4>
-                <div class="features-list">
-                    ${car.features.map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
-                </div>
-            </div>
-            ` : ''}
-            
-            <div class="modal-actions">
-                <button class="btn btn-primary" onclick="contactAboutCar(${car.id}); closeCarModal();">Contact Us</button>
-                <button class="btn btn-outline" onclick="scheduleTestDrive(${car.id})">Schedule Test Drive</button>
-            </div>
-        </div>
-    `;
-    
-    carModal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-// Close car modal
-function closeCarModal() {
-    carModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Contact about specific car
-function contactAboutCar(carId) {
-    const car = carsData.find(c => c.id === carId);
-    if (car) {
-        const message = `I'm interested in the ${car.year} ${car.make} ${car.model} (${formatCurrency(car.price)}). Please contact me with more information.`;
-        
-        // Store message in localStorage to pre-fill contact form
-        localStorage.setItem('prefillMessage', message);
-        localStorage.setItem('prefillInterest', 'buying');
-        
-        // Redirect to contact page
-        window.location.href = 'contact.html';
-    }
-}
-
-// Schedule test drive
-function scheduleTestDrive(carId) {
-    const car = carsData.find(c => c.id === carId);
-    if (car) {
-        const message = `I would like to schedule a test drive for the ${car.year} ${car.make} ${car.model} (${formatCurrency(car.price)}). Please contact me to arrange a convenient time.`;
-        
-        localStorage.setItem('prefillMessage', message);
-        localStorage.setItem('prefillInterest', 'test-drive');
-        
-        window.location.href = 'contact.html';
+// Update results count
+function updateResultsCount() {
+    if (resultsCount) {
+        const count = filteredCars.length;
+        resultsCount.textContent = `${count} vehicle${count !== 1 ? 's' : ''} found`;
     }
 }
 
 // Clear all filters
 function clearFilters() {
-    searchInput.value = '';
-    makeFilter.value = '';
-    fuelFilter.value = '';
-    transmissionFilter.value = '';
-    priceRange.value = '';
+    if (searchInput) searchInput.value = '';
+    if (makeFilter) makeFilter.value = '';
+    if (priceFilter) priceFilter.value = '';
+    if (fuelFilter) fuelFilter.value = '';
+    if (yearFilter) yearFilter.value = '';
+    if (sortSelect) sortSelect.value = 'year-desc';
     
-    currentCars = [...carsData];
-    displayCars(currentCars);
-    updateResultsCount(currentCars.length);
+    filteredCars = [...currentCars];
+    displayCars(filteredCars);
+    updateResultsCount();
 }
 
-// Toggle sort order
-function toggleSort() {
-    sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
-    sortByBtn.textContent = `Sort by Price ${sortOrder === 'asc' ? '↑' : '↓'}`;
-    
-    currentCars.sort((a, b) => {
-        return sortOrder === 'asc' ? a.price - b.price : b.price - a.price;
-    });
-    
-    displayCars(currentCars);
-}
-
-// Switch between grid and list view
-function switchView(view) {
-    currentView = view;
-    
-    if (view === 'grid') {
-        carsContainer.className = 'cars-container grid-view';
-        gridViewBtn.classList.add('active');
-        listViewBtn.classList.remove('active');
-    } else {
-        carsContainer.className = 'cars-container list-view';
-        listViewBtn.classList.add('active');
-        gridViewBtn.classList.remove('active');
-    }
-}
-
-// Update results count
-function updateResultsCount(count) {
-    resultsCount.textContent = count;
-}
-
-// Debounce function for search input
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Keyboard navigation for modal
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && carModal.style.display === 'block') {
-        closeCarModal();
-    }
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+// Contact about specific car
+async function contactAboutCar(carId) {
+    try {
+        const car = await window.DriveZAData.getCarById(carId);
+        if (car) {
+            const message = `I'm interested in the ${car.year} ${car.make} ${car.model} (${formatCurrency(car.price)}). Please contact me with more information.`;
+            document.getElementById('message').value = message;
+            document.getElementById('interest').value = 'buying';
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         }
-    });
-});
-
-// Navbar scroll effect - Tesla Style
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    } catch (error) {
+        console.error('Error getting car details:', error);
     }
-});
-
-// Export functions for global access
-window.showCarModal = showCarModal;
-window.contactAboutCar = contactAboutCar;
-window.scheduleTestDrive = scheduleTestDrive;
+}
