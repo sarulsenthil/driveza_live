@@ -348,6 +348,24 @@ body {
     letter-spacing: 0.05rem;
 }
 
+.carfax-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 4px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.carfax-badge img {
+    display: block;
+    width: 60px;
+    height: auto;
+    border-radius: 2px;
+}
+
 .car-image {
     height: 240px;
     background: linear-gradient(135deg, #e5e5e5, #f0f0f0);

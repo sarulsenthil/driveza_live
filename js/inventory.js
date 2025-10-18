@@ -193,6 +193,7 @@ function createCarCard(car) {
     const soldOverlay = car.sold ? '<div class="sold-overlay">SOLD</div>' : '';
     const soldBadge = car.sold ? '<span class="sold-badge-small">SOLD</span>' : '';
     const cardClass = car.sold ? 'sold-car' : '';
+    const carfaxBadge = car.make !== 'Porsche' ? '<div class="carfax-badge"><img src="https://www.passportbmw.com/blogs/846/wp-content/uploads/2016/07/carfax.jpg" alt="CarFax" style="width: 60px; height: auto; border-radius: 4px;"></div>' : '';
     
     return `
         <div class="car-card ${cardClass}" data-car-id="${car.id}" onclick="window.location.href='car-detail-${car.id}.html'" style="cursor: pointer;">
@@ -201,6 +202,7 @@ function createCarCard(car) {
                      style="width: 100%; height: 100%; object-fit: cover;" 
                      onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-car\' style=\'font-size: 4rem; color: #a0a0a0;\'></i>';">
                 ${badge}
+                ${carfaxBadge}
                 ${soldOverlay}
             </div>
             <div class="car-info">

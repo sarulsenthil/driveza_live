@@ -86,6 +86,7 @@ async function loadFeaturedCars() {
             <div class="car-card ${car.sold ? 'sold-car' : ''}" onclick="viewCarDetails(${car.id})">
                 <div class="car-image" style="background: none; padding: 0; position: relative;">
                     <img src="${car.image}" alt="${car.year} ${car.make} ${car.model}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-car\'></i>';">
+                    ${car.make !== 'Porsche' ? '<div class="carfax-badge"><img src="https://www.passportbmw.com/blogs/846/wp-content/uploads/2016/07/carfax.jpg" alt="CarFax" style="width: 60px; height: auto; border-radius: 4px;"></div>' : ''}
                     ${car.sold ? '<div class="sold-overlay">SOLD</div>' : ''}
                 </div>
                 <div class="car-info">
