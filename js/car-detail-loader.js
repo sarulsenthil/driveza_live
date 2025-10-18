@@ -19,12 +19,26 @@ class CarDetailLoader {
         }
 
         try {
+            // Check if DriveZAData is available
+            if (!window.DriveZAData) {
+                console.error('DriveZAData not available');
+                return;
+            }
+            
+            if (typeof window.DriveZAData.getCarById !== 'function') {
+                console.error('DriveZAData.getCarById is not a function');
+                console.log('Available methods:', Object.getOwnPropertyNames(window.DriveZAData));
+                return;
+            }
+            
+            console.log('Loading car detail for ID:', this.carId);
             const car = await window.DriveZAData.getCarById(this.carId);
             if (!car) {
                 console.error('Car not found');
                 return;
             }
 
+            console.log('Car loaded successfully:', car);
             this.populateCarData(car);
             this.populateSimilarVehicles(car);
         } catch (error) {
@@ -227,6 +241,21 @@ class CarDetailLoader {
 
 // Initialize car detail loader when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
+    // Wait a bit for DriveZAData to be available
+    let attempts = 0;
+    const maxAttempts = 10;
+    
+    while (!window.DriveZAData && attempts < maxAttempts) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        attempts++;
+    }
+    
+    if (!window.DriveZAData) {
+        console.error('DriveZAData not available after waiting');
+        return;
+    }
+    
+    console.log('DriveZAData is available, initializing car detail loader');
     const loader = new CarDetailLoader();
     await loader.loadCarDetail();
 });
