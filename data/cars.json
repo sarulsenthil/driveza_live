@@ -228,6 +228,7 @@
       "doors": 5,
       "seats": 5,
       "vin": "WP1AA2AY3MDA04901",
+      "sold": true,
       "description": "Exceptional 2021 Porsche Cayenne in pristine condition. This luxury SUV combines German engineering excellence with uncompromising performance and sophistication. Features the powerful V6 engine delivering exceptional power and efficiency.",
       "gallery": [
         "../images/cars/porsche-cayenne/IMG_7991.jpeg",
