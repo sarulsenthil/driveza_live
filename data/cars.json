@@ -74,6 +74,7 @@
       "doors": 5,
       "seats": 7,
       "vin": "YV4H60CK4R1153032",
+      "sold": true,
       "description": "Exceptional 2024 Volvo XC90 T8 Core Plug-in Hybrid in sophisticated Gray Metallic. This flagship SUV delivers 455hp combined power with all-electric range capability. The ultimate in luxury, technology, and sustainable performance.",
       "gallery": [
         "../images/cars/xc90-t8/IMG_7940.jpeg",
