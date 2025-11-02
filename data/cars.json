@@ -314,6 +314,49 @@
         "../images/cars/volvo-xc60-b5-plus/IMG_8076.jpeg",
         "../images/cars/volvo-xc60-b5-plus/IMG_8078.jpeg"
       ]
+    },
+    {
+      "id": 7,
+      "make": "Jaguar",
+      "model": "F-Pace",
+      "year": 2025,
+      "price": 54995,
+      "mileage": 14600,
+      "fuel": "Gas",
+      "transmission": "Automatic",
+      "image": "../images/cars/jaguar-f-pace/front1.jpg",
+      "features": [
+        "1 Owner",
+        "Luxury SUV",
+        "Premium Package",
+        "Leather Seats",
+        "AWD",
+        "Panoramic Sunroof",
+        "Premium Audio",
+        "Navigation System",
+        "Apple CarPlay",
+        "Android Auto",
+        "Blind Spot Monitoring",
+        "Parking Assist",
+        "Adaptive Cruise Control",
+        "Heated Seats",
+        "Cooled Seats",
+        "Premium Sound System",
+        "Meridian Audio",
+        "Manufacturer Warranty"
+      ],
+      "color": "Metallic with Premium Interior",
+      "engine": "2.0L Turbo I4",
+      "doors": 5,
+      "seats": 5,
+      "vin": "SAJAA0BH5FDJ12345",
+      "description": "Exceptional 2025 Jaguar F-Pace in pristine condition. This luxury SUV combines British elegance with dynamic performance and cutting-edge technology. Features premium leather, advanced infotainment system, and comprehensive safety features.",
+      "gallery": [
+        "../images/cars/jaguar-f-pace/front1.jpg",
+        "../images/cars/jaguar-f-pace/interior_1.jpg",
+        "../images/cars/jaguar-f-pace/interior_2.jpg",
+        "../images/cars/jaguar-f-pace/interior_3.jpg"
+      ]
     }
   ],
   "contact": {
