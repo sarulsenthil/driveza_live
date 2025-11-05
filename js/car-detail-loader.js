@@ -165,7 +165,10 @@ class CarDetailLoader {
 
         try {
             const allCars = await window.DriveZAData.getCars();
-            const similarCars = allCars.filter(car => car.id !== currentCar.id).slice(0, 3);
+            // Filter out current car and sold vehicles
+            const similarCars = allCars
+                .filter(car => car.id !== currentCar.id && !car.sold)
+                .slice(0, 3);
             
             similarGrid.innerHTML = similarCars.map(car => 
                 this.createSimilarVehicleCard(car)
