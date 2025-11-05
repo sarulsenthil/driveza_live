@@ -58,6 +58,7 @@ async function loadInventory() {
         currentCars = await window.DriveZAData.getCars();
         console.log('Loaded cars:', currentCars);
         filteredCars = [...currentCars];
+        sortCarsBySoldStatus(); // Sort so non-sold vehicles appear first
         displayCars(filteredCars);
         updateResultsCount();
     } catch (error) {
@@ -124,6 +125,7 @@ function filterCars() {
         return matchesSearch && matchesMake && matchesPrice && matchesFuel && matchesYear;
     });
 
+    sortCarsBySoldStatus(); // Sort so non-sold vehicles appear first
     displayCars(filteredCars);
     updateResultsCount();
 }
@@ -144,11 +146,33 @@ function checkPriceRange(price, range) {
     }
 }
 
+// Sort cars by sold status first (non-sold vehicles first)
+function sortCarsBySoldStatus() {
+    filteredCars.sort((a, b) => {
+        // If both are sold or both are available, maintain original order
+        if (a.sold === b.sold) {
+            return 0;
+        }
+        // Sold vehicles go to the bottom (return 1 means a comes after b)
+        return a.sold ? 1 : -1;
+    });
+}
+
 // Sort cars
 function sortCars() {
     const sortBy = sortSelect ? sortSelect.value : 'year-desc';
     
+    // First sort by sold status (non-sold first)
+    sortCarsBySoldStatus();
+    
+    // Then sort by the selected criteria within each group
     filteredCars.sort((a, b) => {
+        // If sold status differs, maintain the sold status sort
+        if (a.sold !== b.sold) {
+            return a.sold ? 1 : -1;
+        }
+        
+        // Within the same sold status group, apply the selected sort
         switch (sortBy) {
             case 'year-desc':
                 return b.year - a.year;
@@ -254,6 +278,7 @@ function clearFilters() {
     if (sortSelect) sortSelect.value = 'year-desc';
     
     filteredCars = [...currentCars];
+    sortCarsBySoldStatus(); // Sort so non-sold vehicles appear first
     displayCars(filteredCars);
     updateResultsCount();
 }
