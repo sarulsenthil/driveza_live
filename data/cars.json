@@ -320,11 +320,11 @@
       "make": "Jaguar",
       "model": "F-Pace",
       "year": 2025,
-      "price": 54995,
+      "price": 47995,
       "mileage": 14600,
       "fuel": "Gas",
       "transmission": "Automatic",
-      "image": "../images/cars/jaguar-f-pace/front1.jpg",
+      "image": "../images/cars/jaguar-f-pace/IMG_8238.jpeg",
       "features": [
         "1 Owner",
         "Luxury SUV",
@@ -351,10 +351,19 @@
       "vin": "SADCT2EX1SA742950",
       "description": "Exceptional 2025 Jaguar F-Pace in pristine condition. This luxury SUV combines British elegance with dynamic performance and cutting-edge technology. Features premium leather, advanced infotainment system, and comprehensive safety features.",
       "gallery": [
-        "../images/cars/jaguar-f-pace/front1.jpg",
-        "../images/cars/jaguar-f-pace/interior_1.jpg",
-        "../images/cars/jaguar-f-pace/interior_2.jpg",
-        "../images/cars/jaguar-f-pace/interior_3.jpg"
+        "../images/cars/jaguar-f-pace/IMG_8238.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8239.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8240.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8241.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8242.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8243.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8244.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8245.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8246.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8247.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8248.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8249.jpeg",
+        "../images/cars/jaguar-f-pace/IMG_8250.jpeg"
       ]
     },
     {
