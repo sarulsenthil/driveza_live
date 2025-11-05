@@ -8,7 +8,18 @@ class CarDetailLoader {
 
     getCarIdFromUrl() {
         const path = window.location.pathname;
-        const match = path.match(/car-detail-(\d+)\.html/);
+        const hash = window.location.hash;
+        // Try to get ID from pathname first
+        let match = path.match(/car-detail-(\d+)\.html/);
+        // If not found in pathname, try hash
+        if (!match && hash) {
+            match = hash.match(/car-detail-(\d+)\.html/);
+        }
+        // If still not found, try full URL
+        if (!match) {
+            const fullUrl = window.location.href;
+            match = fullUrl.match(/car-detail-(\d+)\.html/);
+        }
         return match ? parseInt(match[1]) : null;
     }
 
@@ -34,7 +45,13 @@ class CarDetailLoader {
             console.log('Loading car detail for ID:', this.carId);
             const car = await window.DriveZAData.getCarById(this.carId);
             if (!car) {
-                console.error('Car not found');
+                console.error('Car not found for ID:', this.carId);
+                // Show error message instead of redirecting
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.style.cssText = 'padding: 2rem; text-align: center; background: #fee; color: #c33; margin: 2rem; border-radius: 8px;';
+                errorMsg.innerHTML = '<h2>Car Not Found</h2><p>Unable to load car details. Please <a href="inventory.html">return to inventory</a>.</p>';
+                document.querySelector('.container')?.prepend(errorMsg);
                 return;
             }
 
@@ -241,9 +258,13 @@ class CarDetailLoader {
 
 // Initialize car detail loader when DOM is loaded
 document.addEventListener('DOMContentLoaded', async function() {
+    console.log('Car detail page loaded. URL:', window.location.href);
+    console.log('Pathname:', window.location.pathname);
+    console.log('Hash:', window.location.hash);
+    
     // Wait a bit for DriveZAData to be available
     let attempts = 0;
-    const maxAttempts = 10;
+    const maxAttempts = 20; // Increased attempts
     
     while (!window.DriveZAData && attempts < maxAttempts) {
         await new Promise(resolve => setTimeout(resolve, 100));
@@ -252,11 +273,28 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     if (!window.DriveZAData) {
         console.error('DriveZAData not available after waiting');
+        // Show error to user
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'error-message';
+        errorMsg.style.cssText = 'padding: 2rem; text-align: center; background: #fee; color: #c33; margin: 2rem; border-radius: 8px;';
+        errorMsg.innerHTML = '<h2>Error Loading Page</h2><p>Unable to load car data. Please <a href="inventory.html">return to inventory</a>.</p>';
+        document.querySelector('.container')?.prepend(errorMsg);
         return;
     }
     
     console.log('DriveZAData is available, initializing car detail loader');
     const loader = new CarDetailLoader();
+    
+    if (!loader.carId) {
+        console.error('Could not extract car ID from URL');
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'error-message';
+        errorMsg.style.cssText = 'padding: 2rem; text-align: center; background: #fee; color: #c33; margin: 2rem; border-radius: 8px;';
+        errorMsg.innerHTML = '<h2>Invalid Car Page</h2><p>Unable to identify car. Please <a href="inventory.html">return to inventory</a>.</p>';
+        document.querySelector('.container')?.prepend(errorMsg);
+        return;
+    }
+    
     await loader.loadCarDetail();
 });
 
