@@ -82,6 +82,16 @@ async function loadFeaturedCars() {
             return;
         }
         
+        // Sort cars: available vehicles first, sold vehicles at the bottom
+        cars.sort((a, b) => {
+            // If both are sold or both are available, maintain original order
+            if (a.sold === b.sold) {
+                return 0;
+            }
+            // Sold vehicles go to the bottom (return 1 means a comes after b)
+            return a.sold ? 1 : -1;
+        });
+        
         carsGrid.innerHTML = cars.map(car => `
             <div class="car-card ${car.sold ? 'sold-car' : ''}" onclick="viewCarDetails(${car.id})">
                 <div class="car-image" style="background: none; padding: 0; position: relative;">
