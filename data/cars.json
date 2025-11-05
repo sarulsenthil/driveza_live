@@ -466,11 +466,9 @@
         "18\" X 8J Split-10-spoke Alloy Wheels",
         "Wheel Locks",
         "Perforated NuLuxe Seat Trim",
-        "Triple Beam LED Headlamps",
-        "Power Rear Sunshade",
+        "LED Headlamps",
         "Rear Bumper Applique",
-        "SmartAccess Key Card",
-        "Wood Trim with Ambient Lighting",
+        "Wood Trim",
         "Cargo Net",
         "Carpet Trunk Mat",
         "Illuminated Door Sills",
@@ -498,6 +496,43 @@
       "description": "Exceptional 2024 Lexus ES300h in elegant Caviar. This luxury hybrid sedan combines fuel efficiency with premium comfort and advanced technology. Features include Premium Package with navigation, heated and ventilated seats, wireless charging, and comprehensive safety systems.",
       "gallery": [
         "../images/cars/lexus-es300h/front_1.png"
+      ]
+    },
+    {
+      "id": 10,
+      "make": "Land Rover",
+      "model": "Range Rover Sport",
+      "year": 2025,
+      "price": 84500,
+      "mileage": 5700,
+      "fuel": "Gas",
+      "transmission": "Automatic",
+      "image": "../images/cars/range-rover-sport/IMG_7653.jpg",
+      "features": [
+        "1 Owner",
+        "Luxury SUV",
+        "AWD",
+        "22\" Style 5127 Satin Dark Grey Wheels",
+        "Soft Door Close",
+        "Duo Tone Ebony/Caraway Headlining",
+        "Hand Over Pack",
+        "Wheel Protection Pack",
+        "Navigation System",
+        "Heated Seats",
+        "Cooled Seats",
+        "Windsor Perforated Leather Seats",
+        "Caraway Perforated Interior",
+        "Santorini Black Exterior",
+        "Manufacturer Warranty"
+      ],
+      "color": "Santorini Black with Caraway Perforated Windsor Leather",
+      "engine": "3.0L Turbo I6",
+      "doors": 5,
+      "seats": 5,
+      "vin": "SAL1P9EU5SA441547",
+      "description": "Exceptional 2025 Land Rover Range Rover Sport in sophisticated Santorini Black with luxurious Caraway perforated Windsor leather interior. This premium SUV combines British elegance with cutting-edge technology and comprehensive luxury packages. Features include 22\" wheels, navigation, heated and cooled seats, and premium amenities.",
+      "gallery": [
+        "../images/cars/range-rover-sport/IMG_7653.jpg"
       ]
     }
   ],
