@@ -456,7 +456,7 @@
       "mileage": 38600,
       "fuel": "Hybrid",
       "transmission": "Automatic",
-      "image": "../images/cars/lexus-es300h/front_1.png",
+      "image": "../images/cars/lexus-es300h/IMG_8295.jpeg",
       "features": [
         "1 Owner",
         "Luxury Sedan",
@@ -495,7 +495,17 @@
       "seats": 5,
       "description": "Exceptional 2024 Lexus ES300h in elegant Caviar. This luxury hybrid sedan combines fuel efficiency with premium comfort and advanced technology. Features include Premium Package with navigation, heated and ventilated seats, wireless charging, and comprehensive safety systems.",
       "gallery": [
-        "../images/cars/lexus-es300h/front_1.png"
+        "../images/cars/lexus-es300h/IMG_8295.jpeg",
+        "../images/cars/lexus-es300h/IMG_8296.jpeg",
+        "../images/cars/lexus-es300h/IMG_8297.jpeg",
+        "../images/cars/lexus-es300h/IMG_8298.jpeg",
+        "../images/cars/lexus-es300h/IMG_8299.jpeg",
+        "../images/cars/lexus-es300h/IMG_8300.jpeg",
+        "../images/cars/lexus-es300h/IMG_8301.jpeg",
+        "../images/cars/lexus-es300h/IMG_8302.jpeg",
+        "../images/cars/lexus-es300h/IMG_8303.jpeg",
+        "../images/cars/lexus-es300h/IMG_8304.jpeg",
+        "../images/cars/lexus-es300h/IMG_8305.jpeg"
       ]
     },
     {
