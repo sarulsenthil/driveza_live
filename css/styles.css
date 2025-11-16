@@ -754,6 +754,20 @@ body {
         font-size: 1.5rem;
     }
 
+    /* Mobile navbar: ensure logo and links are visible */
+    .navbar {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar .logo {
+        filter: none;
+    }
+
+    .navbar .nav-link {
+        color: #171a20;
+    }
+
     .nav-menu.active {
         left: 0;
     }
