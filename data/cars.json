@@ -431,6 +431,7 @@
       "doors": 5,
       "seats": 5,
       "vin": "5UXCR6C04P9R46706",
+      "sold": true,
       "description": "Exceptional 2023 BMW X5 xDrive40i in sophisticated Jet Black with luxurious Cognac Sensafin interior. This premium SUV combines powerful performance with cutting-edge technology and comprehensive luxury packages. Features include Premium Package, Climate Comfort Package, Parking Assistance Package, and advanced driver assistance systems.",
       "gallery": [
         "../images/cars/bmw-x5/IMG_8209.jpeg",
@@ -493,6 +494,7 @@
       "engine": "2.5L Hybrid I4",
       "doors": 4,
       "seats": 5,
+      "sold": true,
       "description": "Exceptional 2024 Lexus ES300h in elegant Caviar. This luxury hybrid sedan combines fuel efficiency with premium comfort and advanced technology. Features include Premium Package with navigation, heated and ventilated seats, wireless charging, and comprehensive safety systems.",
       "gallery": [
         "../images/cars/lexus-es300h/IMG_8295.jpeg",
