@@ -145,6 +145,18 @@ body {
     padding: 80px 40px 60px;
     position: relative;
     text-align: center;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/driveza_main_image.png') center center / cover no-repeat;
+    z-index: 0;
 }
 
 .hero::before {
@@ -154,13 +166,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%);
     z-index: 1;
 }
 
 .hero-content {
     max-width: 1440px;
-    margin: auto 0;
+    margin: 484px auto 0;
     display: flex;
     flex-direction: column;
     align-items: center;
