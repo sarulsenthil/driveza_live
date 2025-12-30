@@ -132,8 +132,18 @@ class CarDetailLoader {
             specs.push({ icon: 'fas fa-id-card', label: 'VIN', value: car.vin });
         }
 
+        // Add Carfax link if available
+        if (car.carfaxLink) {
+            specs.push({ 
+                icon: 'fas fa-file-alt', 
+                label: 'Carfax Report', 
+                value: car.carfaxLink,
+                isLink: true
+            });
+        }
+
         specsGrid.innerHTML = specs.map(spec => 
-            this.createSpecItem(spec.icon, spec.label, spec.value)
+            spec.isLink ? this.createCarfaxLink(spec) : this.createSpecItem(spec.icon, spec.label, spec.value)
         ).join('');
     }
 
@@ -229,6 +239,22 @@ class CarDetailLoader {
                 <div class="spec-content">
                     <span class="spec-label">${label}</span>
                     <span class="spec-value">${value}</span>
+                </div>
+            </div>
+        `;
+    }
+
+    createCarfaxLink(spec) {
+        return `
+            <div class="spec-item">
+                <i class="${spec.icon}"></i>
+                <div class="spec-content">
+                    <span class="spec-label">${spec.label}</span>
+                    <div class="spec-value">
+                        <a href="${spec.value}" target="_blank" rel="noopener noreferrer">
+                            <img src="http://www.carfaxonline.com/assets/subscriber/showmethecarfax.jpg" alt="Carfax Report" width="155" height="56" border="0" style="max-width: 155px; height: auto;" />
+                        </a>
+                    </div>
                 </div>
             </div>
         `;
