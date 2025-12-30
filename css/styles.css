@@ -723,7 +723,29 @@ body {
 }
 
 /* Responsive Design - Tesla Optimized */
+/* Mobile Hero Background Fix */
 @media (max-width: 768px) {
+    .hero::after {
+        background-size: contain;
+        background-position: center top;
+    }
+    
+    .hero-content {
+        margin-top: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero::after {
+        background-size: contain;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    
+    .hero-content {
+        margin-top: 200px;
+    }
+    
     .container {
         padding: 0 20px;
     }
@@ -858,6 +880,16 @@ body {
 
     .hero {
         padding: 80px 16px 40px;
+    }
+    
+    .hero::after {
+        background-size: contain;
+        background-position: center top;
+        background-repeat: no-repeat;
+    }
+    
+    .hero-content {
+        margin-top: 150px;
     }
 
     .hero-title {
