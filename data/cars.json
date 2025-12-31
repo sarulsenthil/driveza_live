@@ -124,7 +124,7 @@
       "doors": 5,
       "seats": 7,
       "vin": "7JDEV3VL2SG006458",
-      "description": "Revolutionary 2025 Volvo EX90 Ultra in pristine Crystal White Pearl. This fully electric flagship SUV represents the future of luxury mobility with zero emissions and cutting-edge technology.",
+      "description": "Revolutionary 2025 Volvo EX90 Ultra in pristine Mulberry Red with Black Interior. This fully electric flagship SUV represents the future of luxury mobility with zero emissions and cutting-edge technology.",
       "gallery": [
         "../images/cars/ex90/IMG_7920_3.jpeg",
         "../images/cars/ex90/IMG_7921_3.jpeg",
@@ -726,7 +726,7 @@
       "make": "Porsche",
       "model": "Macan",
       "year": 2021,
-      "price": 42995,
+      "price": 36500,
       "mileage": 38900,
       "fuel": "Gas",
       "transmission": "Automatic",
@@ -748,10 +748,9 @@
         "Heated Seats",
         "Power Seats",
         "Keyless Entry",
-        "Premium Sound System",
-        "Manufacturer Warranty"
+        "Premium Sound System"
       ],
-      "color": "Contact for Color Details",
+      "color": "Grey Metallic with Red/Black Interior",
       "engine": "2.0L Turbo I4",
       "doors": 5,
       "seats": 5,
