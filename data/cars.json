@@ -124,6 +124,7 @@
       "doors": 5,
       "seats": 7,
       "vin": "7JDEV3VL2SG006458",
+      "sold": true,
       "description": "Revolutionary 2025 Volvo EX90 Ultra in pristine Mulberry Red with Black Interior. This fully electric flagship SUV represents the future of luxury mobility with zero emissions and cutting-edge technology.",
       "gallery": [
         "../images/cars/ex90/IMG_7920_3.jpeg",
@@ -801,6 +802,7 @@
       "doors": 5,
       "seats": 7,
       "vin": "4JGFB6BEXPA855496",
+      "sold": true,
       "description": "Exceptional 2023 Mercedes-Benz GLE 53 AMG with clean title and one owner. This high-performance luxury SUV combines AMG power with premium comfort. The handcrafted 3.0L turbocharged inline-6 delivers exhilarating performance with 429 horsepower. Well-maintained with 28,980 miles.",
       "gallery": [
         "../images/cars/mercedes-gle53-amg/IMG_9306.jpeg",
@@ -864,6 +866,7 @@
       "doors": 5,
       "seats": 5,
       "vin": "1C4RJXN60SW578724",
+      "sold": true,
       "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=1C4RJXN60SW578724",
       "description": "Exceptional 2025 Jeep Wrangler Willys 4xe with AWD and plug-in hybrid capability, 12,100 miles. Finished in Granite Crystal Metallic with the Customer Preferred Package 29W, black 3-piece hard top, Willys suspension, mud-terrain tires, Tru-Lok rear axle, Off-Road Plus, receiver hitch with 7- and 4-pin wiring, and premium LED lighting. A trail-ready 4xe with serious off-road hardware.",
       "gallery": [
@@ -912,6 +915,7 @@
       "doors": 4,
       "seats": 5,
       "vin": "W1KZF8DB7NB056390",
+      "sold": true,
       "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=W1KZF8DB7NB056390",
       "description": "Exceptional 2022 Mercedes-Benz E 350 in Nautical Blue Metallic with 12,500 miles. This refined luxury sedan features the Premium Package, Nappa leather steering wheel, and Burmester surround sound. MBUX technology, advanced driver assists, and timeless E-Class comfort make it an outstanding value.",
       "gallery": [
@@ -962,6 +966,7 @@
       "doors": 4,
       "seats": 5,
       "vin": "1HGCY1F49SA052988",
+      "sold": true,
       "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=1HGCY1F49SA052988",
       "description": "Well-equipped 2025 Honda Accord SE with 22,900 miles and heated front seats. This efficient sedan delivers Honda reliability, Honda Sensing safety tech, smartphone integration, and everyday comfort at an attractive price.",
       "gallery": [
@@ -980,6 +985,106 @@
         "../images/cars/honda-accord-se-2025/IMG_9695.jpeg",
         "../images/cars/honda-accord-se-2025/IMG_9697.jpeg"
       ]
+    },
+    {
+      "id": 19,
+      "make": "Acura",
+      "model": "ADX A-Spec",
+      "year": 2025,
+      "price": 27500,
+      "mileage": 5800,
+      "fuel": "Gas",
+      "transmission": "Automatic",
+      "image": "../images/cars/acura-adx-aspec/placeholder.jpg",
+      "features": [
+        "A-Spec",
+        "Sport Utility",
+        "4-Door"
+      ],
+      "color": "",
+      "engine": "1.5L Turbo I4",
+      "doors": 4,
+      "seats": 5,
+      "vin": "3HDSA1H5ZSM700323",
+      "stock": "M700323",
+      "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=3HDSA1H5ZSM700323",
+      "description": "2025 Acura ADX A-Spec with 5,800 miles, priced at $27,500. Photos coming soon.",
+      "gallery": []
+    },
+    {
+      "id": 20,
+      "make": "Mercedes-Benz",
+      "model": "EQS 450 SUV",
+      "year": 2024,
+      "price": 43000,
+      "mileage": 41400,
+      "fuel": "Electric",
+      "transmission": "Automatic",
+      "image": "../images/cars/mercedes-eqs-suv/placeholder.jpg",
+      "features": [
+        "Fully Electric",
+        "Luxury SUV",
+        "EQS SUV"
+      ],
+      "color": "",
+      "engine": "Electric",
+      "doors": 5,
+      "seats": 5,
+      "vin": "4JGDM2DB9RA033143",
+      "stock": "RA033143",
+      "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=4JGDM2DB9RA033143",
+      "description": "2024 Mercedes-Benz EQS 450 SUV with 41,400 miles, priced at $43,000. Fully electric luxury SUV. Photos coming soon.",
+      "gallery": []
+    },
+    {
+      "id": 21,
+      "make": "Audi",
+      "model": "Q4 Sportback e-tron 55 Premium Plus",
+      "year": 2024,
+      "price": 31995,
+      "mileage": 9016,
+      "fuel": "Electric",
+      "transmission": "Automatic",
+      "image": "../images/cars/audi-q4-sportback/placeholder.jpg",
+      "features": [
+        "Fully Electric",
+        "Premium Plus",
+        "Sportback"
+      ],
+      "color": "",
+      "engine": "Dual Electric Motors",
+      "doors": 5,
+      "seats": 5,
+      "vin": "WA13UBF26R051148",
+      "stock": "P055148",
+      "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=WA13UBF26R051148",
+      "description": "2024 Audi Q4 Sportback e-tron 55 Premium Plus with 9,016 miles, priced at $31,995. Photos coming soon.",
+      "gallery": []
+    },
+    {
+      "id": 22,
+      "make": "BMW",
+      "model": "X5 sDrive40i",
+      "year": 2022,
+      "price": 27500,
+      "mileage": 61692,
+      "fuel": "Gas",
+      "transmission": "Automatic",
+      "image": "../images/cars/bmw-x5-sdrive40i-2022/placeholder.jpg",
+      "features": [
+        "sDrive",
+        "RWD",
+        "Luxury SUV"
+      ],
+      "color": "",
+      "engine": "3.0L Turbo I6",
+      "doors": 5,
+      "seats": 5,
+      "vin": "5UXCR4C06N9K71149",
+      "stock": "K71149",
+      "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=5UXCR4C06N9K71149",
+      "description": "2022 BMW X5 sDrive40i with 61,692 miles, priced at $27,500. Rear-wheel drive with the 3.0L turbo inline-six. Photos coming soon.",
+      "gallery": []
     }
   ],
   "contact": {
