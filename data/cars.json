@@ -995,21 +995,33 @@
       "mileage": 5800,
       "fuel": "Gas",
       "transmission": "Automatic",
-      "image": "../images/cars/acura-adx-aspec/placeholder.jpg",
+      "image": "../images/cars/acura-adx-aspec/01.jpg",
       "features": [
         "A-Spec",
         "Sport Utility",
         "4-Door"
       ],
-      "color": "",
+      "color": "Grey Metallic",
       "engine": "1.5L Turbo I4",
       "doors": 4,
       "seats": 5,
       "vin": "3HDSA1H5ZSM700323",
       "stock": "M700323",
       "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=3HDSA1H5ZSM700323",
-      "description": "2025 Acura ADX A-Spec with 5,800 miles, priced at $27,500. Photos coming soon.",
-      "gallery": []
+      "description": "2025 Acura ADX A-Spec with 5,800 miles, priced at $27,500.",
+      "gallery": [
+        "../images/cars/acura-adx-aspec/01.jpg",
+        "../images/cars/acura-adx-aspec/02.jpg",
+        "../images/cars/acura-adx-aspec/03.jpg",
+        "../images/cars/acura-adx-aspec/04.jpg",
+        "../images/cars/acura-adx-aspec/05.jpg",
+        "../images/cars/acura-adx-aspec/06.jpg",
+        "../images/cars/acura-adx-aspec/07.jpg",
+        "../images/cars/acura-adx-aspec/08.jpg",
+        "../images/cars/acura-adx-aspec/09.jpg",
+        "../images/cars/acura-adx-aspec/10.jpg",
+        "../images/cars/acura-adx-aspec/11.jpg"
+      ]
     },
     {
       "id": 20,
@@ -1020,21 +1032,23 @@
       "mileage": 41400,
       "fuel": "Electric",
       "transmission": "Automatic",
-      "image": "../images/cars/mercedes-eqs-suv/placeholder.jpg",
+      "image": "../images/cars/mercedes-eqs-suv/01.jpg",
       "features": [
         "Fully Electric",
         "Luxury SUV",
         "EQS SUV"
       ],
-      "color": "",
+      "color": "Grey",
       "engine": "Electric",
       "doors": 5,
       "seats": 5,
       "vin": "4JGDM2DB9RA033143",
       "stock": "RA033143",
       "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=4JGDM2DB9RA033143",
-      "description": "2024 Mercedes-Benz EQS 450 SUV with 41,400 miles, priced at $43,000. Fully electric luxury SUV. Photos coming soon.",
-      "gallery": []
+      "description": "2024 Mercedes-Benz EQS 450 SUV with 41,400 miles, priced at $43,000. Fully electric luxury SUV.",
+      "gallery": [
+        "../images/cars/mercedes-eqs-suv/01.jpg"
+      ]
     },
     {
       "id": 21,
@@ -1045,21 +1059,32 @@
       "mileage": 9016,
       "fuel": "Electric",
       "transmission": "Automatic",
-      "image": "../images/cars/audi-q4-sportback/placeholder.jpg",
+      "image": "../images/cars/audi-q4-sportback/01.jpg",
       "features": [
         "Fully Electric",
         "Premium Plus",
         "Sportback"
       ],
-      "color": "",
+      "color": "Grey Metallic",
       "engine": "Dual Electric Motors",
       "doors": 5,
       "seats": 5,
       "vin": "WA13UBF26R051148",
       "stock": "P055148",
       "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=WA13UBF26R051148",
-      "description": "2024 Audi Q4 Sportback e-tron 55 Premium Plus with 9,016 miles, priced at $31,995. Photos coming soon.",
-      "gallery": []
+      "description": "2024 Audi Q4 Sportback e-tron 55 Premium Plus with 9,016 miles, priced at $31,995.",
+      "gallery": [
+        "../images/cars/audi-q4-sportback/01.jpg",
+        "../images/cars/audi-q4-sportback/02.jpg",
+        "../images/cars/audi-q4-sportback/03.jpg",
+        "../images/cars/audi-q4-sportback/04.jpg",
+        "../images/cars/audi-q4-sportback/05.jpg",
+        "../images/cars/audi-q4-sportback/06.jpg",
+        "../images/cars/audi-q4-sportback/07.jpg",
+        "../images/cars/audi-q4-sportback/08.jpg",
+        "../images/cars/audi-q4-sportback/09.jpg",
+        "../images/cars/audi-q4-sportback/10.jpg"
+      ]
     },
     {
       "id": 22,
@@ -1070,21 +1095,39 @@
       "mileage": 61692,
       "fuel": "Gas",
       "transmission": "Automatic",
-      "image": "../images/cars/bmw-x5-sdrive40i-2022/placeholder.jpg",
+      "image": "../images/cars/bmw-x5-sdrive40i-2022/01.jpg",
       "features": [
         "sDrive",
         "RWD",
         "Luxury SUV"
       ],
-      "color": "",
+      "color": "Dark Grey Metallic",
       "engine": "3.0L Turbo I6",
       "doors": 5,
       "seats": 5,
       "vin": "5UXCR4C06N9K71149",
       "stock": "K71149",
       "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=5UXCR4C06N9K71149",
-      "description": "2022 BMW X5 sDrive40i with 61,692 miles, priced at $27,500. Rear-wheel drive with the 3.0L turbo inline-six. Photos coming soon.",
-      "gallery": []
+      "description": "2022 BMW X5 sDrive40i with 61,692 miles, priced at $27,500. Rear-wheel drive with the 3.0L turbo inline-six.",
+      "gallery": [
+        "../images/cars/bmw-x5-sdrive40i-2022/01.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/02.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/03.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/04.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/05.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/06.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/07.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/08.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/09.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/10.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/11.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/12.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/13.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/14.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/15.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/16.jpg",
+        "../images/cars/bmw-x5-sdrive40i-2022/17.jpg"
+      ]
     }
   ],
   "contact": {
