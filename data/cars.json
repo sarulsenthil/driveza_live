@@ -1106,6 +1106,7 @@
       "doors": 5,
       "seats": 5,
       "vin": "5UXCR4C06N9K71149",
+      "sold": true,
       "stock": "K71149",
       "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=5UXCR4C06N9K71149",
       "description": "2022 BMW X5 sDrive40i with 61,692 miles, priced at $27,500. Rear-wheel drive with the 3.0L turbo inline-six.",
