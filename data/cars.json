@@ -987,43 +987,6 @@
       ]
     },
     {
-      "id": 19,
-      "make": "Acura",
-      "model": "ADX A-Spec",
-      "year": 2025,
-      "price": 27500,
-      "mileage": 5800,
-      "fuel": "Gas",
-      "transmission": "Automatic",
-      "image": "../images/cars/acura-adx-aspec/01.jpg",
-      "features": [
-        "A-Spec",
-        "Sport Utility",
-        "4-Door"
-      ],
-      "color": "Grey Metallic",
-      "engine": "1.5L Turbo I4",
-      "doors": 4,
-      "seats": 5,
-      "vin": "3HDSA1H5ZSM700323",
-      "stock": "M700323",
-      "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=3HDSA1H5ZSM700323",
-      "description": "2025 Acura ADX A-Spec with 5,800 miles, priced at $27,500.",
-      "gallery": [
-        "../images/cars/acura-adx-aspec/01.jpg",
-        "../images/cars/acura-adx-aspec/02.jpg",
-        "../images/cars/acura-adx-aspec/03.jpg",
-        "../images/cars/acura-adx-aspec/04.jpg",
-        "../images/cars/acura-adx-aspec/05.jpg",
-        "../images/cars/acura-adx-aspec/06.jpg",
-        "../images/cars/acura-adx-aspec/07.jpg",
-        "../images/cars/acura-adx-aspec/08.jpg",
-        "../images/cars/acura-adx-aspec/09.jpg",
-        "../images/cars/acura-adx-aspec/10.jpg",
-        "../images/cars/acura-adx-aspec/11.jpg"
-      ]
-    },
-    {
       "id": 20,
       "make": "Mercedes-Benz",
       "model": "EQS 450 SUV",
@@ -1128,6 +1091,47 @@
         "../images/cars/bmw-x5-sdrive40i-2022/15.jpg",
         "../images/cars/bmw-x5-sdrive40i-2022/16.jpg",
         "../images/cars/bmw-x5-sdrive40i-2022/17.jpg"
+      ]
+    },
+    {
+      "id": 23,
+      "make": "Audi",
+      "model": "Q7 55 Premium Plus",
+      "year": 2023,
+      "price": 30995,
+      "mileage": 53700,
+      "fuel": "Gas",
+      "transmission": "Automatic",
+      "image": "../images/cars/audi-q7-2023/01.jpg",
+      "features": [
+        "Premium Plus Package",
+        "Bang & Olufsen Sound System",
+        "Black Optic Package",
+        "quattro All-Wheel Drive",
+        "Third-Row Seating",
+        "Audi Virtual Cockpit",
+        "Luxury SUV"
+      ],
+      "color": "Black",
+      "engine": "3.0L Turbo V6",
+      "doors": 5,
+      "seats": 7,
+      "vin": "WA1LXBF72PD000376",
+      "carfaxLink": "http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=DVW_1&vin=WA1LXBF72PD000376",
+      "description": "2023 Audi Q7 55 Premium Plus with 53,700 miles, priced at $30,995. Equipped with the Premium Plus Package, Black Optic Package, and Bang & Olufsen sound system, plus quattro all-wheel drive and three-row seating.",
+      "gallery": [
+        "../images/cars/audi-q7-2023/01.jpg",
+        "../images/cars/audi-q7-2023/02.jpg",
+        "../images/cars/audi-q7-2023/03.jpg",
+        "../images/cars/audi-q7-2023/04.jpg",
+        "../images/cars/audi-q7-2023/05.jpg",
+        "../images/cars/audi-q7-2023/06.jpg",
+        "../images/cars/audi-q7-2023/07.jpg",
+        "../images/cars/audi-q7-2023/08.jpg",
+        "../images/cars/audi-q7-2023/09.jpg",
+        "../images/cars/audi-q7-2023/10.jpg",
+        "../images/cars/audi-q7-2023/11.jpg",
+        "../images/cars/audi-q7-2023/12.jpg"
       ]
     }
   ],
